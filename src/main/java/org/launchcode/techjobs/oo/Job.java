@@ -32,6 +32,42 @@ public class Job {
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields match.
 
+
+    @Override
+    public String toString() {
+//        if (name == null) {
+//            this.name = "Data not available";
+//        } else if (employer == null) {
+//            this.employer = new Employer("Data not available");
+//        } else if (location == null) {
+//            this.location = new Location( "Data not available");
+//        } else if (positionType == null) {
+//            this.positionType = new PositionType("Data not available");
+//        } else if(coreCompetency == null){
+//            this.coreCompetency = new CoreCompetency("Data not available");
+//        }
+        return "\nID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency +
+                '\n';
+
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Job{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", employer=" + employer +
+//                ", location=" + location +
+//                ", positionType=" + positionType +
+//                ", coreCompetency=" + coreCompetency +
+//                '}';
+//    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

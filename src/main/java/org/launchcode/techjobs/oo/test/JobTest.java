@@ -34,20 +34,20 @@ public class JobTest {
 
     }
 
-    public void createJobStringToTest(){
-        testString = "\nID: " + completeJobTest1.getId() +
-                "\nName: " + completeJobTest1.getName() +
-                "\nEmployer: " + completeJobTest1.getEmployer() +
-                "\nLocation: " + completeJobTest1.getLocation() +
-                "\nPosition Type: " + completeJobTest1.getPositionType() +
-                "\nCore Competency: " + completeJobTest1.getCoreCompetency() +
-                '\n';
-    }
+//    public void createJobStringToTest(){
+//        testString = "\nID: " + completeJobTest1.getId() +
+//                "\nName: " + completeJobTest1.getName() +
+//                "\nEmployer: " + completeJobTest1.getEmployer() +
+//                "\nLocation: " + completeJobTest1.getLocation() +
+//                "\nPosition Type: " + completeJobTest1.getPositionType() +
+//                "\nCore Competency: " + completeJobTest1.getCoreCompetency() +
+//                '\n';
+//    }
 
     @Before
     public void prepareTestObjects(){
         createJobObject();
-        createJobStringToTest();
+       // createJobStringToTest();
     }
 
     @Test
@@ -77,8 +77,10 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        assertTrue(testString.indexOf('\n') == 0);
-        assertTrue(testString.lastIndexOf('\n') == (testString.length()-1));
+        assertTrue(completeJobTest1.toString().indexOf('\n') == 0);
+        assertTrue(completeJobTest1.toString().lastIndexOf('\n') == (completeJobTest1.toString().length()-1));
+        assertTrue(emptyJob1.toString().indexOf('\n') == 0);
+        //assertTrue(emptyJob1.toString().lastIndexOf('\n') == (emptyJob1.toString().length()-1));
     }
 // (assertThat(), is());   https://stackoverflow.com/questions/41250401/how-to-test-a-tostring-method
 }

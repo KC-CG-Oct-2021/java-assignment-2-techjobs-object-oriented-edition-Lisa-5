@@ -35,17 +35,17 @@ public class Job {
 
     @Override
     public String toString() {
-//        if (name == null) {
-//            this.name = "Data not available";
-//        } else if (employer == null) {
-//            this.employer = new Employer("Data not available");
-//        } else if (location == null) {
-//            this.location = new Location( "Data not available");
-//        } else if (positionType == null) {
-//            this.positionType = new PositionType("Data not available");
-//        } else if(coreCompetency == null){
-//            this.coreCompetency = new CoreCompetency("Data not available");
-//        }
+        if (name == null) {
+            this.name = "Data not available";
+        } else if (employer == null) {
+            this.employer = new Employer("Data not available");
+        } else if (location == null) {
+            this.location = new Location( "Data not available");
+        } else if (positionType == null) {
+            this.positionType = new PositionType("Data not available");
+        } else if(coreCompetency == null){
+            this.coreCompetency = new CoreCompetency("Data not available");
+        }
         return "\nID: " + id +
                 "\nName: " + name +
                 "\nEmployer: " + employer +
@@ -55,18 +55,6 @@ public class Job {
                 '\n';
 
     }
-
-//    @Override
-//    public String toString() {
-//        return "Job{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", employer=" + employer +
-//                ", location=" + location +
-//                ", positionType=" + positionType +
-//                ", coreCompetency=" + coreCompetency +
-//                '}';
-//    }
 
     @Override
     public boolean equals(Object o) {

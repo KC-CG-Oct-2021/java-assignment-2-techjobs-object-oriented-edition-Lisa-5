@@ -22,26 +22,21 @@ public class JobTest {
     Job completeJobTest1;
     Job completeJobTest2;
     Job missingName;
-    String testString; = "\nID: " + 3 +
-            "\nName: " + "Product tester" +
-            "\nEmployer: " + "ACME" +
-            "\nLocation: " + "Desert" +
-            "\nPosition Type: " + "Quality control" +
-            "\nCore Competency: " + "Persistence" +
-            '\n';
+    String testString;
 
-    @Before
-        public void createJobObject(){
+
+    public void createJobObject(){
          emptyJob1 = new Job();
          emptyJob2 = new Job();
          completeJobTest1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence") );
          completeJobTest2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-         missingName = new Job("Data not available", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+         missingName = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
     }
 
-    @Before
+
     public void createJobStringToTest(){
-        testString = "\nID:" + completeJobTest1.getId() +
+        testString = "\nID: " + completeJobTest1.getId() +
                 "\nName: " + completeJobTest1.getName() +
                 "\nEmployer: " + completeJobTest1.getEmployer() +
                 "\nLocation: " + completeJobTest1.getLocation() +
@@ -50,6 +45,11 @@ public class JobTest {
                 '\n';
     }
 
+    @Before
+    public void prepareTestObjects(){
+        createJobObject();
+        createJobStringToTest();
+    }
 
     @Test
     public void testSettingJobId(){
@@ -68,19 +68,17 @@ public class JobTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
-        //assertEquals("ID: " + Job.getId(completeJobTest1), Job.toString(completeJobTest1));
-        //assertEquals(this.createJobStringToTest(completeJobTest1), completeJobTest1.toString());
         assertEquals(testString, completeJobTest1.toString());
     }
 
     @Test
     public void testToStringHandlesEmptyField(){
-        //assertTrue();
+
     }
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-         //assertTrue();
+
     }
 // (assertThat(), is());   https://stackoverflow.com/questions/41250401/how-to-test-a-tostring-method
 }

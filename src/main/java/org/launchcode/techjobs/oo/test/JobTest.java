@@ -21,8 +21,9 @@ public class JobTest {
     Job emptyJob2;
     Job completeJobTest1;
     Job completeJobTest2;
-    Job missingName;
+    Job missingEmployer;
     String testString;
+    String testStringNoEmployer;
 
 
     public void createJobObject(){
@@ -30,10 +31,9 @@ public class JobTest {
          emptyJob2 = new Job();
          completeJobTest1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence") );
          completeJobTest2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-         missingName = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+         missingEmployer = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
     }
-
 
     public void createJobStringToTest(){
         testString = "\nID: " + completeJobTest1.getId() +
@@ -44,7 +44,6 @@ public class JobTest {
                 "\nCore Competency: " + completeJobTest1.getCoreCompetency() +
                 '\n';
     }
-
 
     @Before
     public void prepareTestObjects(){
@@ -74,7 +73,7 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField(){
-
+            assertTrue(missingEmployer.toString().contains("Employer: Data not available"));
     }
 
     @Test

@@ -45,6 +45,7 @@ public class JobTest {
                 '\n';
     }
 
+
     @Before
     public void prepareTestObjects(){
         createJobObject();
@@ -78,7 +79,8 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-
+        assertTrue(testString.indexOf('\n') == 0);
+        assertTrue(testString.lastIndexOf('\n') == (testString.length()-1));
     }
 // (assertThat(), is());   https://stackoverflow.com/questions/41250401/how-to-test-a-tostring-method
 }

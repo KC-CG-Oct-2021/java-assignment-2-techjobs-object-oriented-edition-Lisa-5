@@ -23,7 +23,6 @@ public class JobTest {
     Job completeJobTest2;
     Job missingEmployer;
     String testString;
-    String testStringNoEmployer;
 
 
     public void createJobObject(){

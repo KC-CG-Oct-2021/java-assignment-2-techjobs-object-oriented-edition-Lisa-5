@@ -32,6 +32,7 @@ public class JobTest {
          completeJobTest2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
          missingEmployer = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
+
     }
 
 //    public void createJobStringToTest(){
@@ -83,4 +84,5 @@ public class JobTest {
         //assertTrue(emptyJob1.toString().lastIndexOf('\n') == (emptyJob1.toString().length()-1));
     }
 // (assertThat(), is());   https://stackoverflow.com/questions/41250401/how-to-test-a-tostring-method
+// https://stackoverflow.com/questions/9131071/junit-multiple-before-vs-one-before-split-up-into-methods/9131724#9131724
 }

@@ -35,16 +35,19 @@ public class Job {
 
     @Override
     public String toString() {
-        if (name == null) {
+//        if(name.isEmpty() && employer.getValue()==null && location.getValue() == null && positionType.getValue() == null && coreCompetency.getValue() == null ) {
+//            throw new IllegalArgumentException (“OOPS! This job does not seem to exist.”);
+//        }
+        if (name.isEmpty()) {
             this.name = "Data not available";
-        } else if (employer == null) {
-            this.employer = new Employer("Data not available");
-        } else if (location == null) {
-            this.location = new Location( "Data not available");
-        } else if (positionType == null) {
-            this.positionType = new PositionType("Data not available");
-        } else if(coreCompetency == null){
-            this.coreCompetency = new CoreCompetency("Data not available");
+        } else if (employer.getValue() == null) {
+            this.employer.setValue("Data not available");
+        } else if (location.getValue() == null) {
+            this.location.setValue("Data not available");
+        } else if (positionType.getValue() == null) {
+            this.positionType.setValue("Data not available");
+        } else if(coreCompetency.getValue() == null){
+            this.coreCompetency.setValue("Data not available");
         }
         return "\nID: " + id +
                 "\nName: " + name +

@@ -8,14 +8,9 @@ abstract class JobField {
     private static int nextId = 1;
     private String value;
 
-    public JobField() {
+    public JobField(String value) {
         id = nextId;
         nextId++;
-    }
-
-    public JobField(String value) {
-        this();
-        this.value = value;
     }
 
     public int getId() {
@@ -28,6 +23,11 @@ abstract class JobField {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 
     @Override

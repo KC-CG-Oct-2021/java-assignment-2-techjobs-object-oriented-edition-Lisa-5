@@ -57,7 +57,7 @@ public class JobTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
-       // assertEquals(testString, completeJobTest1.toString());
+        assertEquals(testString, completeJobTest1.toString());
     }
 
     @Test

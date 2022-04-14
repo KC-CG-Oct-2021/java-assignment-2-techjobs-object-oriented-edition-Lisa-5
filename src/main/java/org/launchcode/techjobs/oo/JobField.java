@@ -2,15 +2,19 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-abstract class JobField {
+public abstract class JobField {
 
     private int id;
     private static int nextId = 1;
     private String value;
 
-    public JobField(String value) {
+    public JobField() {
         id = nextId;
         nextId++;
+    }
+
+    public JobField(String value) {
+        this.value = value;
     }
 
     public int getId() {

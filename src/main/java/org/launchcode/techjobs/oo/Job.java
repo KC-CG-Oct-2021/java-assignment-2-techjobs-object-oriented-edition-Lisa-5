@@ -35,9 +35,9 @@ public class Job {
 
     @Override
     public String toString() {
-//        if(name.isEmpty() && employer.getValue()==null && location.getValue() == null && positionType.getValue() == null && coreCompetency.getValue() == null ) {
-//            throw new IllegalArgumentException (“OOPS! This job does not seem to exist.”);
-//        }
+        if(name.isEmpty() && employer.getValue().isBlank() && location.getValue().isBlank() && positionType.getValue().isBlank() && coreCompetency.getValue().isBlank() ) {
+            throw new IllegalArgumentException ("OOPS! This job does not seem to exist.");
+        }
         if (name.isBlank()) {
             this.name = "Data not available";
         } else if (employer.getValue().isBlank()) {

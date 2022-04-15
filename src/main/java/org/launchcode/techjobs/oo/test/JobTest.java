@@ -37,7 +37,7 @@ public class JobTest {
          emptyJob2 = new Job();
          completeJobTest1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence") );
          completeJobTest2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        missingEmployer = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType(), new CoreCompetency("Persistence"));
+        missingEmployer = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
     }
 
@@ -65,7 +65,6 @@ public class JobTest {
         assertTrue(completeJobTest1.getPositionType() instanceof PositionType);
         assertEquals("Persistence", completeJobTest1.getCoreCompetency().getValue());
         assertTrue(completeJobTest1.getCoreCompetency() instanceof CoreCompetency);
-
     }
 
     @Test
@@ -89,6 +88,5 @@ public class JobTest {
         assertTrue(completeJobTest1.toString().lastIndexOf('\n') == (completeJobTest1.toString().length()-1));
 
     }
-// (assertThat(), is());   https://stackoverflow.com/questions/41250401/how-to-test-a-tostring-method
-// https://stackoverflow.com/questions/9131071/junit-multiple-before-vs-one-before-split-up-into-methods/9131724#9131724
+
 }

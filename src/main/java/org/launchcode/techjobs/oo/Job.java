@@ -38,15 +38,15 @@ public class Job {
 //        if(name.isEmpty() && employer.getValue()==null && location.getValue() == null && positionType.getValue() == null && coreCompetency.getValue() == null ) {
 //            throw new IllegalArgumentException (“OOPS! This job does not seem to exist.”);
 //        }
-        if (name.isEmpty()) {
+        if (name.isBlank()) {
             this.name = "Data not available";
-        } else if (employer.getValue() == null) {
+        } else if (employer.getValue().isBlank()) {
             this.employer.setValue("Data not available");
-        } else if (location.getValue() == null) {
+        } else if (location.getValue().isBlank()) {
             this.location.setValue("Data not available");
-        } else if (positionType.getValue() == null) {
+        } else if (positionType.getValue().isBlank()) {
             this.positionType.setValue("Data not available");
-        } else if(coreCompetency.getValue() == null){
+        } else if(coreCompetency.getValue().isBlank()){
             this.coreCompetency.setValue("Data not available");
         }
         return "\nID: " + id +

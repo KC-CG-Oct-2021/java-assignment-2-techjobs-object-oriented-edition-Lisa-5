@@ -23,7 +23,13 @@ public class JobTest {
     Job completeJobTest1;
     Job completeJobTest2;
     Job missingEmployer;
-    String testString;
+    String testString = "\nID: " + 3 +
+            "\nName: " + "Product tester" +
+            "\nEmployer: " + "ACME" +
+            "\nLocation: " + "Desert" +
+            "\nPosition Type: " + "Quality control" +
+            "\nCore Competency: " + "Persistence"+
+            '\n';
 
 
     public void createJobObject(){
@@ -31,7 +37,7 @@ public class JobTest {
          emptyJob2 = new Job();
          completeJobTest1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence") );
          completeJobTest2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-         missingEmployer = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        missingEmployer = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType(), new CoreCompetency("Persistence"));
 
     }
 
@@ -42,17 +48,29 @@ public class JobTest {
 
     @Test
     public void testSettingJobId(){
-        assertFalse(emptyJob1.equals(emptyJob2));
+        assertNotEquals(emptyJob1, emptyJob2);
+        assertEquals(emptyJob1.getId() + 1, emptyJob2.getId());
     }
 
     @Test
     public void testJobConstructorSetsAllFields(){
-        assertTrue(completeJobTest1 != null);
+        assertNotNull(completeJobTest1);
+        assertTrue(completeJobTest1.getId() > 0);
+        assertEquals("Product tester", completeJobTest1.getName());
+        assertEquals("ACME", completeJobTest1.getEmployer().getValue());
+        assertTrue(completeJobTest1.getEmployer() instanceof Employer);
+        assertEquals("Desert", completeJobTest1.getLocation().getValue());
+        assertTrue(completeJobTest1.getLocation() instanceof Location);
+        assertEquals("Quality control", completeJobTest1.getPositionType().getValue());
+        assertTrue(completeJobTest1.getPositionType() instanceof PositionType);
+        assertEquals("Persistence", completeJobTest1.getCoreCompetency().getValue());
+        assertTrue(completeJobTest1.getCoreCompetency() instanceof CoreCompetency);
+
     }
 
     @Test
     public void testJobsForEquality(){
-        assertFalse(completeJobTest1.equals(completeJobTest2));
+        assertNotEquals(completeJobTest1, completeJobTest2);
     }
 
     @Test

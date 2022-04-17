@@ -40,13 +40,17 @@ public class Job {
         }
         if (name.isBlank()) {
             this.name = "Data not available";
-        } else if (employer.getValue().isBlank()) {
+        }
+        if (employer.getValue().isBlank()) {
             this.employer.setValue("Data not available");
-        } else if (location.getValue().isBlank()) {
+        }
+        if (location.getValue().isBlank()) {
             this.location.setValue("Data not available");
-        } else if (positionType.getValue().isBlank()) {
+        }
+        if (positionType.getValue().isBlank()) {
             this.positionType.setValue("Data not available");
-        } else if(coreCompetency.getValue().isBlank()){
+        }
+        if(coreCompetency.getValue().isBlank()){
             this.coreCompetency.setValue("Data not available");
         }
         return '\n' + "ID: " + id + '\n' +

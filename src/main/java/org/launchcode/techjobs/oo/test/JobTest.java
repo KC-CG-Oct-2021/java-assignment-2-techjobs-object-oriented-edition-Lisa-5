@@ -23,13 +23,13 @@ public class JobTest {
     Job completeJobTest1;
     Job completeJobTest2;
     Job missingEmployer;
-    String testString = "\nID: " + 3 +
+    /*String testString = "\nID: " + 3 +
             "\nName: " + "Product tester" +
             "\nEmployer: " + "ACME" +
             "\nLocation: " + "Desert" +
             "\nPosition Type: " + "Quality control" +
             "\nCore Competency: " + "Persistence"+
-            '\n';
+            '\n';*/
 
 
     public void createJobObject(){
@@ -37,7 +37,7 @@ public class JobTest {
          emptyJob2 = new Job();
          completeJobTest1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence") );
          completeJobTest2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        missingEmployer = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+         missingEmployer = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
     }
 
@@ -48,8 +48,8 @@ public class JobTest {
 
     @Test
     public void testSettingJobId(){
-        assertNotEquals(emptyJob1, emptyJob2);
         assertEquals(emptyJob1.getId() + 1, emptyJob2.getId());
+        assertFalse(emptyJob1.equals(emptyJob2));
     }
 
     @Test
@@ -69,23 +69,30 @@ public class JobTest {
 
     @Test
     public void testJobsForEquality(){
-        assertNotEquals(completeJobTest1, completeJobTest2);
+        assertFalse(completeJobTest1.equals(completeJobTest2));
     }
 
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
-        assertEquals(testString, completeJobTest1.toString());
+        //assertEquals(testString, completeJobTest1.toString());
+        assertTrue(completeJobTest1.toString().contains("ID: " + completeJobTest1.getId()));
+        assertTrue(completeJobTest1.toString().contains("Name: Product tester"));
+        assertTrue(completeJobTest1.toString().contains("Employer: ACME"));
+        assertTrue(completeJobTest1.toString().contains("Location: Desert"));
+        assertTrue(completeJobTest1.toString().contains("Position Type: Quality control"));
+        assertTrue(completeJobTest1.toString().contains("Core Competency: Persistence"));
     }
 
     @Test
     public void testToStringHandlesEmptyField(){
             assertTrue(missingEmployer.toString().contains("Employer: Data not available"));
+            //assertEquals("Data not available", missingEmployer.toString()getEmployer().getValue());
     }
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        assertTrue(completeJobTest1.toString().indexOf('\n') == 0);
-        assertTrue(completeJobTest1.toString().lastIndexOf('\n') == (completeJobTest1.toString().length()-1));
+        assertEquals(0, completeJobTest1.toString().indexOf('\n'));
+        assertEquals(completeJobTest1.toString().length()-1, completeJobTest1.toString().lastIndexOf('\n'));
 
     }
 
